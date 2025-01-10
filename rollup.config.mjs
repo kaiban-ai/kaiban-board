@@ -43,7 +43,7 @@ export default {
       babelHelpers: 'bundled',
     }),
     postcss({
-      extract: 'dist/index.css', // Extracts CSS into separate files
+      extract: pathResolve(__dirname, './dist/index.css'), // Use absolute path for CSS output
       minimize: true,        // Minify the extracted CSS      
       plugins: [
         tailwindcss(), // Add Tailwind CSS as a plugin
