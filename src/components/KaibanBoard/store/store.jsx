@@ -14,17 +14,22 @@ import { resumeCreationOpenai } from "../assets/teams/resume_creation";
 // INFO: For code evaluation
 import { Agent, Task, Team } from "kaibanjs";
 import {
+  Firecrawl,
+  TavilySearchResults,
+  GithubIssues,
   Serper,
   WolframAlphaTool,
   ExaSearch,
-  GithubIssues,
-  Firecrawl,
+  SimpleRAG,
+  WebsiteSearch,
+  PdfSearch,
+  TextFileSearch,
+  ZapierWebhook,
+  MakeWebhook,
+  JinaUrlToMarkdown
 } from "@kaibanjs/tools";
-import { TavilySearchResults } from "@langchain/community/tools/tavily_search";
 import { SearchApi } from "@langchain/community/tools/searchapi";
 import { DallEAPIWrapper } from "@langchain/openai";
-// TODO: Remove this import and delete the tools folder
-import { SerperTool } from "../tools";
 
 const createAgentsPlaygroundStore = (initialState = {}) => {
   return create(
@@ -101,11 +106,18 @@ const createAgentsPlaygroundStore = (initialState = {}) => {
                   "TavilySearchResults",
                   "SearchApi",
                   "DallEAPIWrapper",
+                  "Firecrawl",
+                  "GithubIssues",
                   "Serper",
                   "WolframAlphaTool",
                   "ExaSearch",
-                  "GithubIssues",
-                  "Firecrawl",
+                  "SimpleRAG",
+                  "WebsiteSearch",
+                  "PdfSearch",
+                  "TextFileSearch",
+                  "ZapierWebhook",
+                  "MakeWebhook",
+                  "JinaUrlToMarkdown"
                 ];
 
                 // Check if allowed modules are imported
@@ -174,11 +186,17 @@ const createAgentsPlaygroundStore = (initialState = {}) => {
                   "SearchApi",
                   "DallEAPIWrapper",
                   "WolframAlphaTool",
-                  "SerperTool",
                   "Serper",
                   "ExaSearch",
                   "GithubIssues",
                   "Firecrawl",
+                  "SimpleRAG",
+                  "WebsiteSearch",
+                  "PdfSearch",
+                  "TextFileSearch",
+                  "ZapierWebhook",
+                  "MakeWebhook",
+                  "JinaUrlToMarkdown",
                   valueToEvaluate
                 );
                 const team = func(
@@ -189,11 +207,17 @@ const createAgentsPlaygroundStore = (initialState = {}) => {
                   SearchApi,
                   DallEAPIWrapper,
                   WolframAlphaTool,
-                  SerperTool,
                   Serper,
                   ExaSearch,
                   GithubIssues,
-                  Firecrawl
+                  Firecrawl,
+                  SimpleRAG,
+                  WebsiteSearch,
+                  PdfSearch,
+                  TextFileSearch,
+                  ZapierWebhook,
+                  MakeWebhook,
+                  JinaUrlToMarkdown
                 );
 
                 return team;

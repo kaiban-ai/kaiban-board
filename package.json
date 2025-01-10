@@ -20,14 +20,14 @@
     "build-storybook": "storybook build"
   },
   "peerDependencies": {
-    "kaibanjs": "^0.10.0",
+    "kaibanjs": "^0.14.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.1",
     "@heroicons/react": "^2.1.4",
-    "@kaibanjs/tools": "^0.2.1",
+    "@kaibanjs/tools": "^0.5.0",
     "@langchain/community": "^0.3.1",
     "@monaco-editor/react": "^4.6.0",
     "@uiw/react-md-editor": "^4.0.4",
