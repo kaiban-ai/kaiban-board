@@ -9,21 +9,28 @@ import json from '@rollup/plugin-json';
 import tailwindcss from 'tailwindcss';  // Import Tailwind
 import autoprefixer from 'autoprefixer'; // Import Autoprefixer
 import terser from '@rollup/plugin-terser';  // Use the new Terser plugin
+import { fileURLToPath } from 'url';
+import { dirname, resolve as pathResolve } from 'path';
+import { readFileSync } from 'fs';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-// Import package.json as a module
-import packageJson from './package.json' assert { type: 'json' };
+// Read package.json
+const packageJson = JSON.parse(
+  readFileSync(new URL('./package.json', import.meta.url))
+);
 
 export default {
   input: 'src/components/KaibanBoard/index.jsx', // Entry point for your component
-  output: [
-    {
-      file: packageJson.module, // ES Module build output
-      format: 'es',
-      sourcemap: false,
-      plugins: [terser()],  // Minify JS using Terser
-    },
-  ],
+  output: {
+    dir: 'dist',
+    format: 'es',
+    sourcemap: false,
+    preserveModules: true,
+    preserveModulesRoot: 'src',
+    plugins: [terser()],  // Minify JS using Terser
+  },
   plugins: [
     peerDepsExternal(), // Exclude peer dependencies like React from the bundle
     resolve({
@@ -36,7 +43,7 @@ export default {
       babelHelpers: 'bundled',
     }),
     postcss({
-      extract: 'index.css', // Extracts CSS into separate files
+      extract: 'dist/index.css', // Extracts CSS into separate files
       minimize: true,        // Minify the extracted CSS      
       plugins: [
         tailwindcss(), // Add Tailwind CSS as a plugin
@@ -46,5 +53,13 @@ export default {
     image(), // Handle image imports
     json(), // Handle JSON imports
   ],
-  external: ['react', 'react-dom', 'kaibanjs'], // Mark these as external to prevent bundling
+  external: [
+    'react', 
+    'react-dom', 
+    'kaibanjs',
+    '@kaibanjs/tools',
+    '@langchain/community/tools/tavily_search',
+    '@langchain/community/tools/searchapi',
+    '@langchain/openai'
+  ], // Mark these as external to prevent bundling
 };
