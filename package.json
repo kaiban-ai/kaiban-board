@@ -6,8 +6,10 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE.md"
+    "LICENSE.md",
+    "types.d.ts"
   ],
+  "types": "types.d.ts",
   "author": "AI Champions",
   "license": "MIT",
   "scripts": {
