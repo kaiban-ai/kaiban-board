@@ -6,8 +6,10 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE.md"
+    "LICENSE.md",
+    "types.d.ts"
   ],
+  "types": "types.d.ts",
   "author": "AI Champions",
   "license": "MIT",
   "scripts": {
@@ -23,7 +25,7 @@
     "build-storybook": "storybook build"
   },
   "peerDependencies": {
-    "kaibanjs": "^0.22.0",
+    "kaibanjs": "^0.22.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
