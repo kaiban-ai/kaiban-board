@@ -33,6 +33,7 @@ import { TavilySearchResults } from '@langchain/community/tools/tavily_search';
 import { SearchApi } from '@langchain/community/tools/searchapi';
 import { MemoryVectorStore } from 'langchain/vectorstores/memory';
 import { DallEAPIWrapper, OpenAIEmbeddings } from '@langchain/openai';
+import OpenAI from 'openai';
 import { StructuredTool } from '@langchain/core/tools';
 import { z } from 'zod';
 // TODO: Remove this import and delete the tools folder
@@ -131,6 +132,7 @@ const createAgentsPlaygroundStore = (initialState = {}) => {
                   'RAGToolkit',
                   'MemoryVectorStore',
                   'OpenAIEmbeddings',
+                  'OpenAI',
                   'StructuredTool',
                   'z',
                 ];
@@ -217,6 +219,7 @@ const createAgentsPlaygroundStore = (initialState = {}) => {
                   'RAGToolkit',
                   'MemoryVectorStore',
                   'OpenAIEmbeddings',
+                  'OpenAI',
                   'StructuredTool',
                   'z',
                   valueToEvaluate
@@ -245,6 +248,7 @@ const createAgentsPlaygroundStore = (initialState = {}) => {
                   RAGToolkit,
                   MemoryVectorStore,
                   OpenAIEmbeddings,
+                  OpenAI,
                   StructuredTool,
                   z
                 );
