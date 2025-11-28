@@ -33,6 +33,7 @@ import { TavilySearchResults } from '@langchain/community/tools/tavily_search';
 import { SearchApi } from '@langchain/community/tools/searchapi';
 import { MemoryVectorStore } from 'langchain/vectorstores/memory';
 import { DallEAPIWrapper, OpenAIEmbeddings } from '@langchain/openai';
+import { createStep, createWorkflow } from '@kaibanjs/workflow';
 import OpenAI from 'openai';
 import { StructuredTool } from '@langchain/core/tools';
 import { z } from 'zod';
@@ -135,6 +136,8 @@ const createAgentsPlaygroundStore = (initialState = {}) => {
                   'OpenAI',
                   'StructuredTool',
                   'z',
+                  'createStep',
+                  'createWorkflow',
                 ];
 
                 // Check if allowed modules are imported
@@ -222,6 +225,8 @@ const createAgentsPlaygroundStore = (initialState = {}) => {
                   'OpenAI',
                   'StructuredTool',
                   'z',
+                  'createStep',
+                  'createWorkflow',
                   valueToEvaluate
                 );
                 const team = func(
@@ -250,7 +255,9 @@ const createAgentsPlaygroundStore = (initialState = {}) => {
                   OpenAIEmbeddings,
                   OpenAI,
                   StructuredTool,
-                  z
+                  z,
+                  createStep,
+                  createWorkflow
                 );
 
                 return team;
